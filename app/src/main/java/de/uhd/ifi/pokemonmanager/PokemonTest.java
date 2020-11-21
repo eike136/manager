@@ -162,5 +162,12 @@ public class PokemonTest {
         System.out.println(p1);
         System.out.println(p2);
         System.out.println();
+
+        Competition c1 = new Competition();
+        c1.execute(p1, p0);
+        System.out.println(p1);
+        System.out.println(p0);
     }
+
+
 }

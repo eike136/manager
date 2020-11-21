@@ -6,12 +6,11 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Competition extends Swap{
 
     public Competition() {
-        super();
     }
 
     @Override
     public void execute(Pokemon sourcePokemon, Pokemon targetPokemon) {
-        super.execute(sourcePokemon, targetPokemon);
+
         if (sourcePokemon.getTrainer() != targetPokemon.getTrainer()) {
 
             setSourcePokemon(sourcePokemon);
@@ -32,12 +31,13 @@ public class Competition extends Swap{
                 sourcePokemon.setTrainer((targetPokemon.getTrainer()));
             }
 
-
             // store the Swap in Pokemons Swap history
-            sourcePokemon.addSwap(this);
-            targetPokemon.addSwap(this);
-        } else {
-            System.err.printf("No swap: Trainers '%s' == '%s' are identical!%n", sourcePokemon.getTrainer(),
+            sourcePokemon.addCompetions(this);
+            targetPokemon.addCompetions(this);
+        }
+
+        else {
+            System.out.printf("No swap: Trainers '%s' == '%s' are identical!%n", sourcePokemon.getTrainer(),
                     targetPokemon.getTrainer());
         }
     }
