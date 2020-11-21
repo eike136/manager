@@ -25,9 +25,14 @@ public class Competition extends Swap{
 
             if(sourcePokemon.getValue() * ThreadLocalRandom.current().nextInt(min, max + 1)
                     < targetPokemon.getValue() * ThreadLocalRandom.current().nextInt(min, max + 1)){
+                sourcePokemon.getTrainer().getPokemons().remove(sourcePokemon);
+                targetPokemon.getTrainer().getPokemons().add(sourcePokemon);
                 targetPokemon.setTrainer(sourcePokemon.getTrainer());
+
             }
             else{
+                targetPokemon.getTrainer().getPokemons().remove(targetPokemon);
+                sourcePokemon.getTrainer().getPokemons().add(targetPokemon);
                 sourcePokemon.setTrainer((targetPokemon.getTrainer()));
             }
 
