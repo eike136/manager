@@ -13,6 +13,8 @@ public class Pokemon {
     private int number;
     private List<Swap> swaps = new ArrayList<>();
     private boolean isSwapAllowed = true;
+    private int value;
+    private List<Competition> competitions = new ArrayList<>();
 
     public Pokemon(String name, Type type) {
         this.name = name;
@@ -53,9 +55,7 @@ public class Pokemon {
         return swaps;
     }
 
-    public void setSwaps(List<Swap> swaps) {
-        this.swaps = swaps;
-    }
+    public void setSwaps(List<Swap> swaps) { this.swaps = swaps; }
 
     public void addSwap(Swap swap) {
         getSwaps().add(swap);
@@ -73,6 +73,26 @@ public class Pokemon {
     public String toString() {
         return "Pokemon(" + getNumber() + ") '" + getName() + "' of type '" + getType() +
                 "' has trainer '" + getTrainer() + "'";
+    }
+
+    public int getValue(){
+        if(this.type.equals("FIRE")){
+            return 1;
+        }
+        if(this.type.equals("POISON")){
+            return 2;
+        }
+        else {
+            return 3;
+        }
+    }
+
+    public void setCompetitions(List<Competition> competitions) {
+        this.competitions = competitions;
+    }
+
+    public void addCompetions(Competition competition) {
+        getSwaps().add(competition);
     }
 
     public static void main(String[] args) {
