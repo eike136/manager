@@ -12,9 +12,8 @@ public class Pokemon {
     private Trainer trainer;
     private int number;
     private List<Swap> swaps = new ArrayList<>();
-    private boolean isSwapAllowed = true;
-    private int value;
     private List<Competition> competitions = new ArrayList<>();
+    private boolean isSwapAllowed = true;
 
     public Pokemon(String name, Type type) {
         this.name = name;
@@ -55,7 +54,9 @@ public class Pokemon {
         return swaps;
     }
 
-    public void setSwaps(List<Swap> swaps) { this.swaps = swaps; }
+    public void setSwaps(List<Swap> swaps) {
+        this.swaps = swaps;
+    }
 
     public void addSwap(Swap swap) {
         getSwaps().add(swap);
@@ -69,10 +70,27 @@ public class Pokemon {
         this.isSwapAllowed = isSwapAllowed;
     }
 
+    public List<Competition> getCompetitions() {
+        return competitions;
+    }
+
+    public void setCompetitions(List<Competition> competitions) {
+        this.competitions = competitions;
+    }
+
+    public void addCompetition(Competition competition) {getCompetitions().add(competition);}
+
+
     @Override
     public String toString() {
         return "Pokemon(" + getNumber() + ") '" + getName() + "' of type '" + getType() +
                 "' has trainer '" + getTrainer() + "'";
+    }
+
+    public static void main(String[] args) {
+        Pokemon p;
+        p = new Pokemon("Glurak", Type.FIRE);
+        System.out.println(p);
     }
 
     public int getValue(){
@@ -85,19 +103,5 @@ public class Pokemon {
         else {
             return 3;
         }
-    }
-
-    public void setCompetitions(List<Competition> competitions) {
-        this.competitions = competitions;
-    }
-
-    public void addCompetions(Competition competition) {
-        getSwaps().add(competition);
-    }
-
-    public static void main(String[] args) {
-        Pokemon p;
-        p = new Pokemon("Glurak", Type.FIRE);
-        System.out.println(p);
     }
 }

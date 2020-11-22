@@ -163,11 +163,22 @@ public class PokemonTest {
         System.out.println(p2);
         System.out.println();
 
+        System.out.println("Testen competition mit Problem: gleicher Trainer");
+        Competition c0 = new Competition();
+        c0.execute(p2, p0);
+        System.out.println();
 
+        System.out.println("Testen competition ohne Probleme");
+        System.out.println("pre competition");
+        System.out.println(t0.getPokemons());
+        System.out.println(t1.getPokemons());
+        //  System.out.println("competition " + p0 + " " + p1);
         Competition c1 = new Competition();
         c1.execute(p1, p0);
         System.out.println(p1);
         System.out.println(p0);
-
+        System.out.println(t0.getPokemons());
+        System.out.println();
+        System.out.println(t1.getPokemons());
     }
 }
